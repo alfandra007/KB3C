@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Feb 29 13:42:45 2020
+Created on Sat Feb 29 18:44:28 2020
 
-@author: FannyShafira
+@author: User
 """
 #%% Mencoba loading an example dataset
 from sklearn import datasets # Digunakan Untuk Memanggil class datasets dari library sklearn
@@ -30,13 +30,13 @@ X, y = datasets.load_iris(return_X_y=True) #Mengambil dataset iris dan mengembal
 clf.fit(X, y)               #Perhitungan nilai label
 
 from joblib import dump, load #memanggil class dump dan load pada library joblib
-dump(clf, '1174069.joblib') #Menyimpan model kedalam 1174069.joblib
-hasil = load('1174069.joblib') #Memanggil model 1174069
+dump(clf, '1174070.joblib') #Menyimpan model kedalam 1174027.joblib
+hasil = load('1174070.joblib') #Memanggil model 1174027
 print(hasil) # Menampilkan Model yang dipanggil sebelumnya
 
 #%% Conventions
 import numpy as np # memanggil library numpy dan dibuat alias np
-from sklearn import random_projection #Memanggil class random_projection pada library sklearn
+from sklearn import random_projection #Memanggil class random_projection pada library sklean
 
 rng = np.random.RandomState(0) #Membuat variabel rng, dan mendefisikan np, fungsi random dan attr RandomState kedalam variabel
 X = rng.rand(10, 2000) # membuat variabel X, dan menentukan nilai random dari 10 - 2000
