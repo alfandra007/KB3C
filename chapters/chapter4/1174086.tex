@@ -1,0 +1,219 @@
+\section{1174086 - Tia Nur candida}
+    \subsection{Teori}
+    \begin{enumerate}
+        \item Klasifikasi Text
+        
+        Klasifikasi teks merupakan cara dalam memilah milah data teks berdasarkan paramter tertentu dengan cara data yang bersifat dokumen ataupun teks yang memiliki kumpulan teks didalamnya, serta teks itu sendiri bertip char atau string yang mudah diolah.
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/klasifikasi.PNG}
+            \centering
+            \caption{Klasifikasi Text}
+        \end{figure}
+
+        \item Mengapa Klasifikasi Bunga tidak dapat menggunakan Machine Learning
+        
+		Karena klasifikasinya menggunakan tipe data yang dimana attributenya memiliki nilai data berupa vektor dengan perbandingan masing-masing data yang dimiliki memiliki sedikit perbedaan, sehingga program atau sistem tidak dapat membedakan dengan tepat antara gambar 1 dan 2 dikarenakan memiliki perbedaan yang hampir tidak dapat dilihat dengan beberapa contoh gambar. untuk ilustrasi dapat dilihat pada gambar        
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/bunga.PNG}
+            \centering
+            \caption{Klasifikasi Bunga}
+        \end{figure}
+
+        \item Teknik Pembelajaran maachine learning pada teks kata-kata di youtube
+        
+        Contohnya pada saat kita membuka sebuah video maka di sebelah kanan ada list ”berikutnya”, pada saat itu mesin melakukan ujicoba dan apabila anda menekan salah satu dari video tersebut maka hal tersebut akan direkam dan disimpan oleh mesin tersebut dan kemudian akan memutar yang ada pada list selanjutnya.
+
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/youtube.PNG}
+            \centering
+            \caption{Machine Learning Youtube}
+        \end{figure}
+
+        \item Jelaskan apa yang dimaksud vektorisasi data.
+        
+        Pemechan data menjadi bagian bagian yang lebih sederhana contoh ada sebuah paragraf, dari paragraf tersebut akan dibagi bagi menjadi kalimat, yang nantinya akan dibagi bagi kembali menjadi perkata.
+
+        \item Jelaskan apa itu bag of words dengan kata-kata yang sederhana dan ilustrasi sendiri
+        
+        5.  Model bag-of-words adalah representasi penyederhanaan yang digunakan dalam pemrosesan bahasa alami dan pengambilan informasi (IR). Dalam model ini, sebuah teks (seperti kalimat atau dokumen) direpresentasikan sebagai tas (multiset) dari kata-katanya, mengabaikan tata bahasa dan bahkan urutan kata tetapi menjaga multiplisitas. Model bag-of-words juga telah digunakan untuk visi komputer. Model bag-of-words umumnya digunakan dalam metode klasifikasi dokumen di mana (frekuensi) kemunculan setiap kata digunakan sebagai fitur untuk melatih classifier
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/bow.jpg}
+            \centering
+            \caption{Bag of Words}
+        \end{figure}
+
+        \item Jelaskan apa itu TF-IDF, ilustrasikan dengan gambar sendiri.
+        
+        metode algoritma yang berguna untuk menghitung bobot setiap kata yang umum digunakan. Metode ini juga terkenal efisien, mudah dan memiliki hasil yang akurat. Metode ini akan menghitung nilai Term Frequency (TF) dan Inverse Document Frequency (IDF) pada setiap token (kata) di setiap dokumen dalam korpus. Secara sederhana, metode TF-IDF digunakan untuk mengetahui berapa sering suatu kata muncul di dalam dokumen.
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/tf.png}
+            \centering
+            \caption{TF-IDF}
+        \end{figure}
+
+    \end{enumerate}
+
+    \subsection{Praktek}
+    \begin{enumerate}
+        \item import data pandas dan 500 baris data dumy kemudian di jelaskan tiap barisnya. \hfill \break \lstinputlisting[firstline=8, lastline=13]{src/1174086/chap4/1174086.py}
+        
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/1.png}
+            \centering
+            \caption{Data Dummy}
+        \end{figure}
+
+        \item memecah data prame menjadi dua yag pertama 450 dan kedua sisanya \hfill \break \lstinputlisting[firstline=14, lastline=16]{src/1174086/chap4/1174086.py}
+        
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/2.png}
+            \centering
+            \caption{Pisah Data}
+        \end{figure}
+
+        \item praktek vektorisasi \hfill \break \lstinputlisting[firstline=17, lastline=47]{src/1174086/chap4/1174086.py}
+        
+        lakukan import library pandas yang di inisialisasi menjasi pd setelah itu ada dibuat variable data dengan method read\_csv untuk membaca file berekstensikan csv yang di masukan alamatnya pada kurung, lakukan klasifikasi atau pemilihan komentar yang berisi spam atau bukan spam dengan parameter class samadengan 1 merupakan spam dan class samadengan 0 bukan spam setelah itu masukan librari CountVektorizer yang digunakan untuk vektorisasi data kemudian dilanjutkan pada bagian In[103] dibuat variabel yang berisi vektorisasi dari data pada data di field content setelah itu variabel tersebut di running hasilnya menunjukan 350 baris di kali 1738 kolom selanjutnya dicoba untuk memunculkan isi recod pada baris ke 345 maka akan muncul isian dari baris tersebut. selanjutnya dibuat variabel dk atau daftar yang berisi data hasil vektorisasi setelah yang terdiri dari variabel dshuf yang berisi data komen yang di dalamnya di buat random yang nantinya akan dibut data training dan data testing dengan ketentuan data training 300 dan data testing sebanyak 50 setelah itu data training di lakukan vektorisasi dan data testing juga dilakukan vektorisasi setelah itu kedua data training dan testing tersebut dibuat label dengan parameter field CLASS pada tabel.
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/3.png}
+            \centering
+            \caption{Vektorisasi}
+        \end{figure}
+
+        \item klasifikasi SVM \hfill \break \lstinputlisting[firstline=49, lastline=53]{src/1174086/chap4/1174086.py}
+        
+        import librari svm dari sklearn kemudian membuat variabel clfsvm berisikan method svc setelah itu variabel tersebut di berikan method fit dengan isian data train vektorisasi dan data training label yang berguna untuk melatih data tersebut setelah itu di coba untuk memunculkan score atau akurasi dari data tersebut menggunakan data testing vektorisasi dan data testing label.
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/4.png}
+            \centering
+            \caption{SVM}
+        \end{figure}
+
+        \item klasifikasi decision tree \hfill \break \lstinputlisting[firstline=55, lastline=58]{src/1174086/chap4/1174086.py}
+        
+        import librari tree dari sklearn kemudian membuat variabel clftree berisikan method DecisionTreeClasifier setelah itu variabel tersebut di berikan method fit dengan isian data train vektorisasi dan data training label yang berguna untuk melatih data tersebut agar dapat digunakan pada codingan selanjutnya setelah itu di coba untuk memunculkan score atau akurasi dari data tersebut menggunakan data testing vektorisasi dan data testing label.
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/5.png}
+            \centering
+            \caption{Desicion Tree}
+        \end{figure}
+
+        \item plot comfusion matrix \hfill \break \lstinputlisting[firstline=61, lastline=64]{src/1174086/chap4/1174086.py}
+        
+        import library comfusion matrix selanjutnya dilakukan prediksi pada pada data tes nya kemudian data tersebut di masukan kedalam variabel cm dengan method confusion matrix yang di dalamnya terdapat data dari variabel perd label dan dk test label setelah itu variabel cm tersebut di running maka akan memunculkan nilai matrixnya. 
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/6.png}
+            \centering
+            \caption{Confussion Matrix}
+        \end{figure}
+
+        \item cross valodation \hfill \break \lstinputlisting[firstline=66, lastline=85]{src/1174086/chap4/1174086.py}
+        
+        memunculkan nilai akurasi dari tiga metode yaitu random forest, decision tree, dan klasifikasi svm (suport vector machine) diamana akan di bandingkan tingkat akurasi dari semua hasil akurasiya mana yang terbaik dan lebih akurat pada hasilnya data yang paling akurat yaitu random forest.
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/7.png}
+            \centering
+            \caption{Cross Validation}
+        \end{figure}
+
+        \item Pengamatan program \hfill \break \lstinputlisting[firstline=88, lastline=104]{src/1174086/chap4/1174086.py}
+        
+        terdapat grafik data yang terdapat dari grafik tersebut di dapat dari codingan dengan cara pengulangan data masing masing 10 kali setelah itu di eksekusi menjadi grafik berbentuk 3D pada gambar tersebut menunjukan rasio dari yang terrendah yaitu data SVM kemudian data decision tree dan hasil random forest.
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/8.png}
+            \centering
+            \caption{Pengamatan Program}
+        \end{figure}
+
+        Berikut adalah untuk grafik \hfill \break \lstinputlisting[firstline=108, lastline=122]{src/1174086/chap4/1174086.py}
+        \begin{figure}[H]
+            \includegraphics[width=4cm]{figures/1174086/chapter4/9.png}
+            \centering
+            \caption{Grafik}
+        \end{figure}
+    \end{enumerate}
+    \subsection{Penanganan Error}
+        \subsubsection{Sreenshoot Error}
+        \begin{enumerate}
+            \item Error 1
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/errtype1.png}
+                \centering
+                \caption{Error1}
+            \end{figure}
+            \item Error 2
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/errtype2.png}
+                \centering
+                \caption{Error2}
+            \end{figure}
+            \item Error 3
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/errtype3.png}
+                \centering
+                \caption{Error3}
+            \end{figure}
+            \item Error 4
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/errtype4.png}
+                \centering
+                \caption{Error4}
+            \end{figure}
+        \end{enumerate}
+        \subsubsection{Kode Error dan Jenisnya}
+        \begin{enumerate}
+            \item Kode Error 1 jenis Name Error
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/err1.png}
+                \centering
+                \caption{Error1}
+            \end{figure}
+            \item Kode Error 2 jenis Key Error
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/err2.png}
+                \centering
+                \caption{Error2}
+            \end{figure}
+            \item Kode Error 3 jenis FileNotFoundError
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/err3.png}
+                \centering
+                \caption{Error3}
+            \end{figure}
+            \item Kode Error 4 Key Error
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/err4.png}
+                \centering
+                \caption{Error4}
+            \end{figure}
+        \end{enumerate}
+        \subsubsection{Solusi}
+        \begin{enumerate}
+            \item Mengimport liibrary numpy sebagai np
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/solution1.png}
+                \centering
+                \caption{Solusi 1}
+            \end{figure}
+            \item Mengganti CONTENTz menjadi CONTENT
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/solution2.png}
+                \centering
+                \caption{Solusi 2}
+            \end{figure}
+            \item Merubah backslash menjadi slash biasa
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/solution3.png}
+                \centering
+                \caption{Solusi 3}
+            \end{figure}
+            \item Merubah data menjadi dibawah 350
+            \begin{figure}[H]
+                \includegraphics[width=4cm]{figures/1174086/chapter4/solution4.png}
+                \centering
+                \caption{Solusi 4}
+            \end{figure}
+        \end{enumerate}
+        
+\subsection{Link Youtube}
+https://youtu.be/Zsk8IXYg7Gk
