@@ -1,0 +1,226 @@
+\section{1174077 - Alvan Alvanzah}
+\subsection{Teori}
+
+\begin{enumerate}
+
+\item Jelaskan kenapa file suara harus dilakukan MFCC dilengkapi dengan ilustrasi atau gambar.\par
+digunakan untuk mengidentifikasi jenis suara misalkan jenis suara gendre lagu jes pop metal dan klasikal atau suara ultra sonic.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,1.PNG}
+\caption{Ilustrasi gambar metode MFCC}
+\label{contoh}
+\end{figure}
+
+
+\item Jelaskan konsep dasar neural network. dilengkapo dengan ilustrasi gambar. \par
+konsep neural network dilaka ada inputan pasti ada outputan sesuai dengan kategori inputan dan fungsi di dalamnya.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,2.PNG}
+\caption{Ilustrasi Konsep dasar neural network}
+\label{contoh}
+\end{figure}
+
+
+\item Jelaskan konsep pembobotan  dalam neural network. dilengkapidengan ilustrasi gambar. \par
+pembobotan dalam neural network yaitu digunakan untuk membedakan objek inputan atau variabel inputan untuk AI misalkan apel dan jeruk digunakan untuk variabel inputan maka dibuat pembobotan anatara kedua benda tersebut untuk menentukan output yang pasti dari inputan yang dilakukan.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,3.PNG}
+\caption{Ilustrasi Konsep pembobotan pada neural network}
+\label{contoh}
+\end{figure}
+
+\item Jelaskan konsep aktifitas dalam neural network. dilengkapi dengan ilustrasi gambar.\par
+cara aktifitas dalam neural network dilakukan terhadap input pada neural network inputan tersebut dimasukan kepada fungsi pada mesin misalkan fungsi tanh(x) sehingga di hasilkanlah output yang sesuai dengan fungsi tersebut.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,4.PNG}
+\caption{Gambar yang dibaca hasil plotnya}
+\label{contoh}
+\end{figure}
+
+\item Jelaskan cara membaca hasil plot dari MFCC dilengkapi dengan ilustrasi gambar. \par
+cara membaca hasil ploting dari MFCC yaitu tentukan terlebih dahulu batas minimal Hz dari gelombang suara dan batas maksimal dari suara tersebut. kemudian warna yang paling pekat merupakan hasil dari pengolahan data tersebut misalkan muncul warna orange pekat di bagian bawah dan orange muda di bagian atas yang berarti suara tersebut kuat bagian basnya dan biasanya juga antara warna yang pekat tersebut ada jarak.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,5.PNG}
+\caption{Ilustrasi Cara Membaca Hasil Plot}
+\label{contoh}
+\end{figure}
+
+\item Jelaskan apa itu one-hot encoding, dilengkapi dengan ilustrasi kode atau gambar.\par
+one-hot encoding merupakan pemberian nilai pada suatu variabel jika nilai itu iya maka nilainya satu dan jika tidak maka nilainya nol.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,6.PNG}
+\caption{Ilustrasi Konsep one-hot encoding}
+\label{contoh}
+\end{figure}
+
+\item Jelaskan apa dari np.unique dan to\_categorical dalam kode program, dilengkapi dengan ilustrasi atau gambar.\par
+digunakan untuk membuat array sedangkan  to\_categorical digunakan untuk membuat matrix baui itu 64 bit atau 32 bit.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,7,1.PNG}
+\caption{Ilustrasi np.unique}
+\label{contoh}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,7,2.PNG}
+\caption{Ilustrasi to\_categorical}
+\label{contoh}
+\end{figure}
+
+
+\item Jelaskan apa fungsi dari Sequential dalam kode program, dilengkapi dengan ilustrasi atau gambar. \par
+sequential adalah prosesperbandingan setiap elemen satu persatu mulai dari dari objek pertama hingga yang di tuju atau jika mencari angka 100 maka sequential akan membagi bagian misalnya dari satu sampai 20 dan seterusnya sampai mendapat nilai seratus.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174077/6/1,8.PNG}
+\caption{Ilustrasi Konsep pembobotan pada neural network}
+\label{contoh}
+\end{figure}
+\end{enumerate}
+
+\subsection{Praktek Program}
+\begin{enumerate}
+	\item Soal 1
+	\hfill\break
+	\lstinputlisting[firstline=7, lastline=28]{src/1174077/6/1174077.py}
+	Kode di atas menjelaskan cara mengimport library yang dibutuhkan dan membuat fungsi display mfcc untuk melakukan plot pada file audio nanti. Isi data GTZAN adalah datasets lagu atau suara yang terdiri dari 10 gendre yang di simpan kedalam 10 folder yaitu folder blues, classical, country, disco, hiphop, jazz, metal, pop, reggae, dan rock ke sepuluh folder tersebut masing-masing  berisi 100 data suara sedangkan data freesound merupakan contoh data suara yang akan di gunakan untuk menguji hasil pengolahan data tersebut dengan menggunakan metode mfcc. jika GTZAN memiliki beberapa genre jika freesound hanya untuk 1 lagu dan disini kita membuat fungsi untuk membaca file audio dan outputnya sebagai plot, hasilnya adalah sebagai berikut:
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/8.png}
+		\caption{Hasil Soal 1.}
+	\end{figure}
+
+	\item Soal 2
+	\hfill\break
+	\lstinputlisting[firstline=29, lastline=52]{src/1174077/6/1174077.py}
+	Kode di atas akan menampilkan hasil dari proses mfcc yang sudah dibuat fungsi pada soal 1, yaitu fungsi display mfcc akan menampilkan plot dari pembacaan file audio. Berikut adalah hasil dari salah satu pembacaan file audio :
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/9.png}
+		\caption{Hasil Soal 2.}
+	\end{figure}
+
+	\item Soal 3
+	\hfill\break
+	\lstinputlisting[firstline=53, lastline=63]{src/1174077/6/1174077.py}
+	Kode di atas adalah membuat fungsi yang didefinisikan dengan nama extract\_features\_song yang nantinya akan di gunakan pada fungsi yang lainya kemudian dibuat variabel y dengan method librosa load setelah itu dibuat variabel baru mfcc dengan isi librosa features mfcc dengan isi variabel y tadi kemudian dibuat variabel mfcc dengan isian np.max dan variabel mfcc tadi terakhir di buat array dari data tersebut merupakan data 25000 data pertama. kenapa data 25000 pertama yang digunakan dikarenakan data tersebut digunakan sebagai data testing semakin besar data testing yang di gunakan maka semakin akurat hasil AI. tapi sebenarnya data tersebut relatif bisa lebih besar atau lebih kecil tergantung pada komputer masing masing. Hasilnya adalah sebagai berikut :
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/10.png}
+		\caption{Hasil Soal 3.}
+	\end{figure}
+
+	\item Soal 4
+	\hfill\break
+	\lstinputlisting[firstline=65, lastline=84]{src/1174077/6/1174077.py}
+	Kode di atas adalah mendefinisian nama fungsi yaitu generate features and labels kemudian membuat variabel baru dengan array kosing yaitu all\_features dan all\_labels kemudian mendefinisikan isian label untuk gendre dengan cara membuat variabel genres kemudian di isi dengan 10 gendre yang tadi setelah itu dilakukan fungsi if else dengan code for dan in setelah itu akan di buat encoding untuk data tiap tiap label contoh untuk blues 1000000000 dan untuk clasical 0100000000. Hasilnya adalah sebagai berikut :
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/11.png}
+		\caption{Hasil Soal 4.}
+	\end{figure}
+
+	\item Soal 5
+	\hfill\break
+	\lstinputlisting[firstline=86, lastline=90]{src/1174077/6/1174077.py}
+	Hal ini menjadi lama dikarenakan mesin membaca satupersatu file yang ada pada folder dan dalam foldertersebut terdapat 100 file sehingga wajar menjadi lama ditambah lagi mengolah data yang tadinya suara menjadi bentuk vektor. Hasilnya adalah sebagai berikut :
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/12.png}
+		\includegraphics[width=4cm]{figures/1174077/6/13.png}
+		\includegraphics[width=4cm]{figures/1174077/6/14.png}
+		\caption{Hasil Soal 5.}
+	\end{figure}
+
+	\item Soal 6
+	\hfill\break
+	\lstinputlisting[firstline=91, lastline=110]{src/1174077/6/1174077.py}
+	Kode diatas berfungsi untuk melakukan training split 80\%. Karena supaya mesin dapat terus belajar tentang data baru, jadi ketika prediksi dibuat tentang data yang terlatih itu bisa mendapatkan persentase yang cukup bagus. Hasilnya adalah sebagai berikut :
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/15.png}
+		\caption{Hasil Soal 6.}
+	\end{figure}
+
+	\item Soal 7
+	\hfill\break
+	\lstinputlisting[firstline=112, lastline=118]{src/1174077/6/1174077.py}
+	Fungsi Sequential() ialah Sebuah model untuk menentukan izin pada setiap neuron, di sini adalah 100 dense yang merupakan 100 neuron pertama dari data pelatihan. Fungsi dari relay itu sendiri adalah untuk mengaktifkan neuron atau input yang memiliki nilai maksimum. Sedangkan untuk dense 10 itu adalah output dari hasil neuron yang telah berhasil diaktifkan, untuk dense 10 diaktifkan menggunakan softmax. Hasilnya adalah sebagai berikut :
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/16.png}
+		\caption{Hasil Soal 7.}
+	\end{figure}
+
+	\item Soal 8
+	\hfill\break
+	\lstinputlisting[firstline=119, lastline=123]{src/1174077/6/1174077.py}
+	Model Compile di perjelas dengan gambar dibawah, Hasil output pada kode tersebut seperti gambar  menjelaskan bahwa dense pertama itu memiliki 100 neurons dengan parameter sekitar 2 juta lebih dengan aktviasi 100, jadi untuk setiap neurons memiliki masing-masing 1 aktivasi. Sama halnya seperti dense 2 memiliki jumlah neurons sebanyak 10 dengan parameter 1010 dan jumlah aktivasinya 10 untuk setiap neurons tersebut dan total parameternya sekitar 2.5 juta data yang akan dilatih pada mesin tersebut.
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/17.png}
+		\caption{Hasil Soal 8.}
+	\end{figure}
+
+	\item Soal 9
+	\hfill\break
+	\lstinputlisting[firstline=124, lastline=126]{src/1174077/6/1174077.py}
+	Kode tersebut berfungsi untuk melatih mesin dengan data training input dan training label. Epochs ini merupakan iterasi atau pengulangan berapa kali data tersebut akan dilakukan. Batch\_size ini adalah jumlah file yang akan dilakukan pelatihan pada setiap 1 kali pengulangan. Sedangkan validation\_split itu untuk menentukan presentase dari cross validation atau k-fold sebanyak 20\% dari masing-masing data pengulangan, hasilnya adalah sebagai berikut :
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/18.png}
+		\caption{Hasil Soal 9.}
+	\end{figure}
+
+	\item Soal 10
+	\hfill\break
+	\lstinputlisting[firstline=127, lastline=131]{src/1174077/6/1174077.py}
+	Fungsi evaluate atau evaluasi ini ialah untuk menguji data pengujian setiap file. Di sini ada prediksi yang hilang, artinya mesin memprediksi data, sedangkan untuk keseluruhan perjanjian sekitar 55\%, hasilnya adalah sebagai berikut :
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/19.png}
+		\caption{Hasil Soal 10.}
+	\end{figure}
+
+	\item Soal 11
+	\hfill\break
+	\lstinputlisting[firstline=133, lastline=134]{src/1174077/6/1174077.py}
+	Fungsi Predict ialah untuk menghasilkan suatu nilai yang sudah di prediksi dari data training sebelumnya. Gambar dibawah ini menjelaskan file yang di jalankan tersebut termasuk ke dalam genre apa, hasilnya bisa dilihat pada gambar tersebut presentase yang paling besar yakni genre rock. Maka lagu tersebut termasuk ke dalam genre rock dengan perbandingan presentase hasil prediksi.
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=4cm]{figures/1174077/6/20.png}
+		\caption{Hasil Soal 11.}
+	\end{figure}
+\end{enumerate}
+
+\subsection{Penanganan Error}
+\begin{enumerate}
+	\item ScreenShoot Error
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174077/6/error.png}
+		\centering
+		\caption{FileNotFoundError}
+	\end{figure}
+
+	\item Cara Penanganan Error
+	\begin{itemize}
+		\item FileNotFoundError
+		\hfill\break
+		Error terdapat pada letak file yang tidak terbaca, karena letak file berbeda dengan pemanggilannya, solusi nya ialah dengan meletakkan direktori file yang dibaca dengan benar.
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Bukti Tidak Plagiat}
+\begin{figure}[H]
+\centering
+	\includegraphics[width=4cm]{figures/1174077/6/plagiat.png}
+	\caption{Bukti Tidak Melakukan Plagiat Chapter 6}
+\end{figure}
