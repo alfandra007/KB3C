@@ -1,0 +1,192 @@
+\section{ Arrizal Furqona Gifary / 1174070}
+\subsection{Teori}
+
+\begin{enumerate}
+
+\item Jelaskan kenapa file suara harus dilakukan MFCC dilengkapi dengan ilustrasi atau gambar.\par
+digunakan untuk mengidentifikasi jenis suara misalkan jenis suara gendre lagu jes pop metal dan klasikal atau suara ultra sonic.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,1.PNG}
+\caption{Ilustrasi gambar metode MFCC}
+\label{contoh}
+\end{figure}
+
+
+\item Jelaskan konsep dasar neural network. dilengkapo dengan ilustrasi gambar. \par
+konsep neural network dilaka ada inputan pasti ada outputan sesuai dengan kategori inputan dan fungsi di dalamnya.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,2.PNG}
+\caption{Ilustrasi Konsep dasar neural network}
+\label{contoh}
+\end{figure}
+
+
+\item Jelaskan konsep pembobotan  dalam neural network. dilengkapidengan ilustrasi gambar. \par
+pembobotan dalam neural network yaitu digunakan untuk membedakan objek inputan atau variabel inputan untuk AI misalkan apel dan jeruk digunakan untuk variabel inputan maka dibuat pembobotan anatara kedua benda tersebut untuk menentukan output yang pasti dari inputan yang dilakukan.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,3.PNG}
+\caption{Ilustrasi Konsep pembobotan pada neural network}
+\label{contoh}
+\end{figure}
+
+\item Jelaskan konsep aktifitas dalam neural network. dilengkapi dengan ilustrasi gambar.\par
+cara aktifitas dalam neural network dilakukan terhadap input pada neural network inputan tersebut dimasukan kepada fungsi pada mesin misalkan fungsi tanh(x) sehingga di hasilkanlah output yang sesuai dengan fungsi tersebut.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,4.PNG}
+\caption{Gambar yang dibaca hasil plotnya}
+\label{contoh}
+\end{figure}
+
+\item Jelaskan cara membaca hasil plot dari MFCC dilengkapi dengan ilustrasi gambar. \par
+cara membaca hasil ploting dari MFCC yaitu tentukan terlebih dahulu batas minimal Hz dari gelombang suara dan batas maksimal dari suara tersebut. kemudian warna yang paling pekat merupakan hasil dari pengolahan data tersebut misalkan muncul warna orange pekat di bagian bawah dan orange muda di bagian atas yang berarti suara tersebut kuat bagian basnya dan biasanya juga antara warna yang pekat tersebut ada jarak.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,5.PNG}
+\caption{Ilustrasi Cara Membaca Hasil Plot}
+\label{contoh}
+\end{figure}
+
+\item Jelaskan apa itu one-hot encoding, dilengkapi dengan ilustrasi kode atau gambar.\par
+one-hot encoding merupakan pemberian nilai pada suatu variabel jika nilai itu iya maka nilainya satu dan jika tidak maka nilainya nol.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,6.PNG}
+\caption{Ilustrasi Konsep one-hot encoding}
+\label{contoh}
+\end{figure}
+
+\item Jelaskan apa dari np.unique dan to\_categorical dalam kode program, dilengkapi dengan ilustrasi atau gambar.\par
+digunakan untuk membuat array sedangkan  to\_categorical digunakan untuk membuat matrix baui itu 64 bit atau 32 bit.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,7,1.PNG}
+\caption{Ilustrasi np.unique}
+\label{contoh}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,7,2.PNG}
+\caption{Ilustrasi to\_categorical}
+\label{contoh}
+\end{figure}
+
+
+\item Jelaskan apa fungsi dari Sequential dalam kode program, dilengkapi dengan ilustrasi atau gambar. \par
+sequential adalah prosesperbandingan setiap elemen satu persatu mulai dari dari objek pertama hingga yang di tuju atau jika mencari angka 100 maka sequential akan membagi bagian misalnya dari satu sampai 20 dan seterusnya sampai mendapat nilai seratus.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/1,8.PNG}
+\caption{Ilustrasi Konsep pembobotan pada neural network}
+\label{contoh}
+\end{figure}
+
+\end{enumerate}
+
+\subsection{Praktikum}
+\begin{enumerate}
+\item Jelaskan isi dari data GTZAN Genre Collection dan data dari freesound. Buat kode program program untuk meload data tersebut untuk digunakan pada MFCC. Jelaskan arti dari perbaris kode yang dibuat (harus beda dengan teman satukelas).\par
+\subitem Isi data data merupakan datasets lagu atau suara yang tersiri dari 10 gendre yang di simpan kedalam 10 folder yaitu folder blues, classical, country, disco, hiphop, jazz, metal, pop, reggae, dan rock ke sepuluh folder tersebut masing-masing  berisi 100 data suara sedangkan data freesound merupakan contoh data suara yang akan di gunakan untuk menguji hasil pengolahan data tersebut dengan menggunakan metode mfcc. apakah suara dari freesound termasuk kategori jazz pop atau sebagainya ?.
+
+\lstinputlisting{src/1174070/6/2,1.py}
+
+\subitem dapat dilihat pada kode diatas pada baris kesatu dilakukan import librosa tang digunakan untuk fungsi mfcc pada suara.
+pada baris kedua dilakukan import librosa featuse dan pada baris ke tiga dilakukan librosa display selanjutnya pada baris ke empat dilakukan import glob kemudian insert numpy untuk pengolahan data menjadi vektor setelah itu dilakukan import matplotlib untuk melakukan ploting setelah itu dilakukan import librari keras.\par
+
+\subitem Selanjutnya yaitu membuat fungsi mfcc dengan nama display\_mfcc yang didalamnya terdapat variabel y yang berisi method librosa load kemudian variabel mfcc yang berisi method librosa featurea mfcc. Setelah itu membuat flot figure dengan ukuran 10 banding 4 kemudian di isi oleh data librosa display dengan variabel x nya yaitu waktu dan y yaitu mel atau Hz kemudian melakukan plot warna setelah itu melakukan plot judul dan terakhir flot di tampilkan. 
+
+\item Jelaskan perbaris kode program dengan kata-kata dan di lengkapi ilustrasi gambar fungsi dari display\_mfcc().\par
+
+\lstinputlisting{src/1174070/6/2,2.py}
+
+\subitem pada baris ke dua program diatas digunakan untuk mendisplay tampilan glombang suara dari file 266093\_\_stereo-surgeon\_\_kick-loop-5.wav menggunakan metode mfcc dengan menggunakan fungsi display\_mfcc yang telah tadi di buat pada nomer dua begitu juga pada baris ke 4 6 8 sampai ke 22 secara teksis sama menggunakan fungsi display\_mfcc hanyasaja beda peyimpanan data yang akan di tampilkan atau di eksekusi. untuk contoh hasilnya dapat dilihat pada gambar \ref{c122} berikut:
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/2,2.JPG}
+\caption{Ilustrasi gambar fungsi dari display\_mfcc() }
+\label{contoh}
+\end{figure}
+
+Gambar tersebut merupakan hasil dari mfcc dari salah satu gender lagu pop yang ada pada datasets yang 1000 atau terdapat dalam sepuluh folder tadi.
+
+\item Jelaskan perbaris dengan kata-kata dan dilengkapi dengan ilustrasi gambar fungsi dari extract\_features\_song jelaskan kenapa data yangdiambil merupakan data 25.000 baris pertama ? 
+
+\lstinputlisting{src/1174070/6/2,3.py}
+
+\subitem pada baris ke tiga di definisikan nama extract\_features\_song yang nantinya akan di gunakan pada fungsi yang lainya kemudian dibuat variabel y dengan method librosa load setelah itu dibuat variabel baru mfcc dengan isi librosa features mfcc dengan isi variabel y tadi kemudian dibuat variabel mfcc dengan isian np.max dan variabel mfcc tadi terakhir di buat array dari data tersebut merupakan data 25000 data pertama. kenapa data 25000 pertama yang digunakan dikarenakan data tersebut digunakan sebagai data testing semakin besar data testing yang di gunakan maka semakin akurat hasil AI. tapi sebenarnya data tersebut relatif bisa lebih besar atau lebih kecil tergantung pada komputer masing masing.
+
+\item Jelaskan Perbaris kode program dengan kata-kata dan di lengkapi ilustrasi gambar fungsi dari generate features and labels.
+
+\lstinputlisting{src/1174070/6/2,4.py}
+
+\subitem pada baris ke tiga merupakan pendefinisian nama fungsi yaitu generate features and labels kemudian membuat variabel baru dengan array kosing yaitu all\_features dan all\_labels kemudian mendefinisikan isian label untuk gendre dengan cara membuat variabel genres kemudian di isi dengan 10 gendre yang tadi setelah itu dilakukan fungsi if else dengan code for dan in setelah itu akan di buat encoding untuk data tiap tiap label contoh untuk blues 1000000000 dan untuk clasical 0100000000.
+
+\item Jelaskan dengan kata dan praktek kenapa penggunaan fungsi generate features and labels sangat lama saat meload dataset gendre tunjukan keluarannya dari komputer sendiri dan artikan maksud dari luaran tersebut.\par
+
+halnini menjadi lama dikarenakan mesin membaca satupersatu file yang ada pada folder dan dalam foldertersebut terdapat 100 file sehingga wajar menjadi lama ditambah lagi mengolah data yang tadinya suara menjadi bentuk vektor. berikut merupakan codenya.
+\lstinputlisting{src/1174070/6/2,5.py}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/2,5.JPG}
+\caption{Hasil dari fungsi generate features and labels}
+\label{contoh}
+\end{figure}
+
+
+\item jelaskan kenapa harus dilakukan pemisahan data training dan data testing sebesar 80 persen praktekan dengan kode dan tunjukan keluarannya dari komputer sendiri dan artikan maksud dari luaran tersebut. 
+untuk code nya adalah sebagai berikut  yang merupakan code untuk membagi data sebanyak 80 persen untuk data training maka data musik tadi yang total jumlahnya 1000 akan di bagi dua untuk data training sebanyak 800  dan 200 untuk data testing.
+\lstinputlisting{src/1174070/6/2,6.py}
+
+
+\item praktekan dan jelaskan masing masing parameter dari fungsi Sequential().  tunjukan keluarannya dari komputer sendiri dan artikan maksud dari luaran tersebut.\par
+\subitem fungsi sequential digunakan untuk mengolah data inputan sesuai dengan fungsi yang ada pada fungsi sequential pada fungsi sequential kali ini menggunakan dua fungsi sequential mengkompile data dari 100 neuron atau dari 1 folder file dengan menggunakan fungsi relu dan softmax untuk menghasilkan outputan yang sesuai dengan keriteria.
+\lstinputlisting{src/1174070/6/2,7.py}
+
+
+\item praktekan dan jelaskan masing masing parameter dari fungsi compile().  tunjukan keluarannya dari komputer sendiri dan artikan maksud dari luaran tersebut. \par
+\subitem yaitu fungsi kompile yang digunakan untuk mengetahui parameter yang digunakan dari data yang telah diolah untuk caranya dapat menggunakan codingan sebagai berikut, pada gambar tersebut memunculkan parameternya berapasaja dan total parameter yang digunakan.
+\lstinputlisting{src/1174070/6/2,8.py}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/2,8.JPG}
+\caption{Hasil fungsi compile}
+\label{contoh}
+\end{figure}
+
+\item praktekan dan jelaskan masing masing parameter dari fungsi fit().  tunjukan keluarannya dari komputer sendiri dan artikan maksud dari luaran tersebut.\par
+\subitem pada fungsi ini dilakukan pengolahan data dari 10 label tadi atau 10 file data sets tadi kemudian di hitung tingkat akurasi masing masing dan tingkat kegagalan atau loss data darisetiap file tersebut caranya dengan melakukan codingan berikut. pada gambar tersebut menunjukan 10 pengolahan data untuk menentukan nilai akurasi dan loss dari data tersebut dan selanjutnya dilakukan fingsi evaluasi.
+\lstinputlisting{src/1174070/6/2,9.py}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/2,9.JPG}
+\caption{Hasil fungsi fit}
+\label{contoh}
+\end{figure}
+
+\item praktekan dan jelaskan masing masing parameter dari fungsi evaluate().  tunjukan keluarannya dari komputer sendiri dan artikan maksud dari luaran tersebut.\par
+\subitem pada fungsi ini dilakukan evaluasi terhadap datayang telah di runing sebelummnya untuk lebih jelasnya dapat di lihat codingan tersebut  pada codingan tersebut dilakukan evaluasi pada tingkat kegagalan dan akurasi kebenaran maka hasilnya munculkan hasil evaluasi dari 10 proses dari setiap gendre yaitu akurasi sebesar 51 persen dan loss data sebesar 1.4105 data.
+\lstinputlisting{src/1174070/6/2,10.py}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/2,10.JPG}
+\caption{Hasil fungsi evaluasi}
+\label{contoh}
+\end{figure}
+
+\item praktekan dan jelaskan masing masing parameter dari fungsi predic  tunjukan keluarannya dari komputer sendiri dan artikan maksud dari luaran tersebut. \par 
+\subitem fungsi predic merupakan fungsi untuk membandingkan tingkat akurasi pada setiap label yang sepuluh tadi maka data akan di sandingkan ke masing masing tingkat akurasinya, yang akurasinya paling tinggi maka itulah jawaban untuk setiap inputan yang dilakukan. 
+\lstinputlisting{src/1174070/6/2,11.py}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/1174070/6/2,11.JPG}
+\caption{Hasil fungsi prediksi}
+\label{contoh}
+\end{figure}
+
+Alhamduluillah
+\end{enumerate}
+
