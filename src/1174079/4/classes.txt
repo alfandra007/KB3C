@@ -1,0 +1,2 @@
+0 Not_Spam
+1 Spam
