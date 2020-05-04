@@ -7,26 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1eLdEcjXQWtVdvK172TqLr_MN6m0KuEQL
 """
 
-from google.colab import drive
-drive.mount('/content/drive')
-
-import os
-os.chdir("/drive/My Drive/uts/lagu")
-
-import os 
-import os
-os.chdir("Ari Laso")
-
-import os
-os.chdir("../")
-
-ls
-
-!ls
-
-!mkdir -p drive
-!google-drive-ocamlfuse drive
-
 !apt-get install -y -qq software-properties-common python-software-properties module-init-tools
 !add-apt-repository -y ppa:alessandro-strada/ppa 2>&1 > /dev/null
 !apt-get update -qq 2>&1 > /dev/null
@@ -58,15 +38,11 @@ import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.utils.np_utils import to_categorical
-from sklearn.metrics import confusion_matrix
-import itertools
-import numpy as np
-import tensorflow as tf
 
 def display_mfcc(song):
     y, _ = librosa.load(song)
     mfcc = librosa.feature.mfcc(y)
-    
+
     plt.figure(figsize=(10, 4))
     librosa.display.specshow(mfcc, x_axis='time', y_axis='mel')
     plt.colorbar()
@@ -74,9 +50,9 @@ def display_mfcc(song):
     plt.tight_layout()
     plt.show()
 
-extract_features_song('singers/Ari Laso/track_dua.wav')
+display_mfcc('singers/Ari Laso/track_dua.wav')
 
-extract_features_song('singers/BCL/lagu_dua.wav')
+display_mfcc('singers/BCL/lagu_dua.wav')
 
 def extract_features_song(f):
     y, _ = librosa.load(f)
@@ -115,7 +91,7 @@ features, labels = generate_features_and_labels()
 print(np.shape(features))
 print(np.shape(labels))
 
-training_split = 0.8
+training_split = 0.6
 
 # last column has genre, turn it into unique ids
 alldata = np.column_stack((features, labels))
@@ -160,6 +136,7 @@ print("Loss: %.4f, accuracy: %.4f" % (loss, acc))
 # save the trained model
 model.save("singers2.hdf5")
 
+import tensorflow as tf 
 model2 = tf.keras.models.load_model("singers2.hdf5")
 print(model2.summary())
 
@@ -170,14 +147,17 @@ def predict(song_path):
 
     print("Prediction: %s, confidence: %.2f" % (np.argmax(prediction), np.max(prediction)))
 
-extract_features_song('singers/Rosa/lgone.wav')
+predict('singers/Rosa/lgone.wav')
 
-extract_features_song('singers/Ari Laso/track_dua.wav')
+predict('singers/Ari Laso/track_dua.wav')
 
+from sklearn.metrics import confusion_matrix
 pred_labels = model2.predict(test_input)
 cm = confusion_matrix(test_labels.argmax(axis=1), pred_labels.argmax(axis=1))
 cm
 
+import matplotlib.pyplot as plt
+import itertools
 def plot_confusion_matrix(cm, classes,
                           normalize=False,
                           title='Confusion matrix',
@@ -211,6 +191,8 @@ def plot_confusion_matrix(cm, classes,
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
+
+import numpy as np
 
 singers = ['Ari Laso', 'BCL', 'Bebi Romeo', 'Citra', 'Elo', 'Fatin', 'Gigi', 'Republik', 'Rosa', 'Siti Nurhaliza']
 plot_confusion_matrix(cm, classes=singers, normalize=True)
