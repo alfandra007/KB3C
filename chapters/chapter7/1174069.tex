@@ -1,0 +1,194 @@
+\section{1174069 - Fanny Shafira Damayanti}
+\subsection{Teori}
+\begin{enumerate}
+	\item Jelaskan kenapa file teks harus di lakukan tokenizer. dilengkapi dengan ilustrasi atau gambar. 
+	\hfill \break
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/1.png}
+		\centering
+		\caption{Illustrasi Tokenizer}
+	\end{figure}
+	\item Jelaskan konsep dasar K Fold Cross Validation pada dataset komentar Youtube pada kode listing \ref{lst:7.0}.dilengkapi dengan ilustrasi atau gambar.
+	\hfill \break
+	\begin{lstlisting}[caption=K Fold Cross Validation,label={lst:7.0}]
+		kfold = StratifiedKFold(n_splits=5)
+		splits = kfold.split(d, d['CLASS'])
+	\end{lstlisting}
+	Pada koding diatas terdapat variabel kfold yang didalamnya berisi parameter split yang diisikan nilai 5. hal tersebut dimaksudkan untuk membuat pengolahan data akan diulang setiap datanya sebanyak lima kali dengan atribut class sebagai acuan pengolahan datanya. Lalu kemudian akan di hasilkan akurasi dari pengulangan data tersebut sebesar sekian persen tergantung datanya
+	\begin{figure}[H]
+    	\includegraphics[width=4cm]{figures/1174069/7/2.png}
+    	\centering
+    	\caption{Illustrasi K Fold Cross Validation}
+	\end{figure}
+	\item Jelaskan apa maksudnya kode program \emph{for train, test in splits}.dilengkapi dengan ilustrasi atau gambar.
+	\hfill \break
+	For train digunakan untuk melakukan training atau pelatihan pada data yang sudah dideklarasikan sebelumnya. Sedangkan test in split digunakan untuk membatasi jumlah data yang akan diinputkan atau data yang akan digunakan.
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/3.png}
+		\centering
+		\caption{Illustrasi For train dan test in split}
+	\end{figure}
+	\item Jelaskan apa maksudnya kode program \emph{train\_content = d['CONTENT'].iloc[train\_idx]} dan \emph{test\_content = d['CONTENT'].iloc[test\_idx]}. dilengkapi dengan ilustrasi atau gambar.
+	\hfill \break
+	Maksud dari kode program tersebut adalah membaca isian kolom pada ﬁeld yang bernama CONTENT sebagai data training dan data testing untuk program 
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/4.png}
+		\centering
+		\caption{Illustrasi penggunaan kolom Content}
+	\end{figure}
+	Jelaskan apa maksud dari fungsi \emph{tokenizer = Tokenizer(num\_words=2000)} dan \emph{tokenizer.fit\_on\_texts(train\_content)}, dilengkapi dengan ilustrasi atau gambar.
+		\begin{itemize}
+			\item tokenizer = Tokennizer(num\_words=2000) digunakan untuk membaca kalimat yang telah dibuat menjadi token sebanyak 2000 kata
+    		\item fit\_on\_texts digunakan untuk membuat membaca data token teks yang telah dimasukan kedalam fungsi yaitu fungsi train\_konten
+		\end{itemize}
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/5.png}
+		\centering
+		\caption{Illustrasi fit tokenizer dan num\_word=2000}
+	\end{figure}
+	\item Jelaskan apa maksud dari fungsi \emph{d\_train\_inputs = tokenizer.texts\_to\_matrix(train\_content, mode='tfidf')} dan \emph{d\_test\_inputs = tokenizer.texts\_to\_matrix(test\_content, mode='tfidf')}, dilengkapi dengan ilustrasi kode dan atau gambar.
+	\hfill \break
+	Untuk digunakan sebagai pengubah urutan teks yang tadi telah dilakukan tkoenizer menjadi matriks yang berurutan seperti tf idf
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/6.png}
+		\centering
+		\caption{Illustrasi d train inputs = tokenizer.texts to matrix}
+	\end{figure}
+	\item Jelaskan apa maksud dari fungsi \emph{d\_train\_inputs = d\_train\_inputs/np.amax(np.absolute(d\_train\_inputs))} dan \emph{d\_test\_inputs = d\_test\_inputs/np.amax(np.absolute(d\_test\_inputs))}, dilengkapi dengan ilustrasi atau gambar.
+	\hfill \break
+	Fungsi tersebut digunakan untuk membagi matriks tfidf dnegan penentuan maksimum array sepanjang sumbu sehingga akan menimbulkan garis ke bawah dan ke atas yang membentuk gambar v. Lalu hasil tersebut akan dimasukkan ke variabel d train input dan d test input dengan methode absolute. Yang berarti tanpa bilangan negatif.
+	\item Jelaskan apa maksud fungsi dari \emph{d\_train\_outputs = np\_utils.to\_categorical(d['CLASS'].iloc[train\_idx])} dan \emph{d\_test\_outputs = np\_utils.to\_categorical(d['CLASS'].iloc[test\_idx])} dalam kode program, dilengkapi dengan ilustrasi atau gambar.
+	\hfill \break
+	Maksud dari fungsi tersebut yaitu untuk merubah nilai vektor yang ada pada atribut class menjadi bentuk matrix dengan pengurutan berdasarkan data index training dan testing.
+	\item Jelaskan apa maksud dari fungsi di listing \ref{lst:7.1}. Gambarkan ilustrasi Neural Network nya dari model kode tersebut.
+	\hfill \break
+	\begin{lstlisting}[caption=Membuat model Neural Network,label={lst:7.1}]
+		   model = Sequential()
+		   model.add(Dense(512, input_shape=(2000,)))
+		   model.add(Activation('relu'))
+		   model.add(Dropout(0.5))
+		   model.add(Dense(2))
+		   model.add(Activation('softmax'))
+	\end{lstlisting}
+	model = sequential berarti variabel model berisi method sequential yang berguna untuk searching data dengan menerima parameter atau argumen kunci dengan langkah tertentu untuk mencari data yang telah diolah. Kemudian model akan ditambahkan method add dengan dense yang berarti data - data yang diinputkan akan terhubung, dengan data 612 dan 2000 data kata atau word kemudian model tersebut di masukan fungsi activation dengan rumus atau metode relu. setelah itu data akan di dropout 0.5atau dipangkas sebanyak 50 persen dikarenakan pada pohon bobot terlalu akurat terhadap data.
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/7.png}
+		\centering
+		\caption{Illustrasi d train inputs}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/8.png}
+		\centering
+		\caption{Illustrasi train outputs = np utils.to categorical}
+	\end{figure}
+	\item Jelaskan apa maksud dari fungsi di listing \ref{lst:7.2} dengan parameter tersebut.
+	\hfill \break
+	\begin{lstlisting}[caption=Compile model,label={lst:7.2}]
+		model.compile(loss='categorical_crossentropy', optimizer='adamax',
+						  metrics=['accuracy'])
+	\end{lstlisting}
+	model tersebut kemudian di compile atau di kembalikan kembali fungsi nilainya yangmana akan mengembalikan fungsi nilai loss nya berapa yang diambil dari fungsi adamax yang berberguna untuk mengetahui nilai lossnya kemudian metrics = acuracy merupakan akurasi dari nilai matrixnya. kemudian terdiri atas beberapa layer atau hiden layer. perbedaan antara deep learning dan DNN atau Deep Neural Network yaitu deep lerning merupakan pemakai algoritma dari DNN dan DNN merupakan algoritma yang ada pada deep learning.
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/9.png}
+		\centering
+		\caption{Illustrasi Neural Network}
+	\end{figure}
+	\item Jelaskan apa itu Deep Learning
+	\hfill \break
+	Deep learning merupakan salah satu algoritma yang seperti Neural Network yang menggunakan meta data sebagai inputan dan mengolahnya menggunakan layer layer yang tersembunyi.
+	\item Jelaskan apa itu Deep Neural Network, dan apa bedanya dengan Deep Learning
+	\hfill \break
+	Deep Neural Network merupakan algoritma jaringan syaraf yang melakukan pembobotan terhadap data yang sudah ada sebagai acuan untuk data inputan selanjutnya. 
+	\item Jelaskan dengan ilustrasi gambar buatan sendiri(langkah per langkah) bagaimana perhitungan algoritma konvolusi dengan ukuran stride (NPM mod3+1) x (NPM mod3+1) yang terdapat max pooling.(nilai 30)
+	\hfill \break
+	sebelum membuat ilustrasi perlu di ketahui apa itu stride, stride adalah acuan atau parameter yang menentukan pergeseran pada ﬁlter ﬁxcel. sebagai contoh nilai stride 1 yang berarti ﬁlter akan bergeser sebanyak satu ﬁxcel secara vertikal dan horizontal. selanjutnya apa itu max pooling contoh pada suatu gambar di tentukan Max Pooling dari 3 x 3 dengan stride 1 yang berarti setiap pergeseran 1 pixcel akan diambil nilai terbesar dari pixcel 3 x 3 tersebut.
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/10.png}
+		\centering
+		\caption{Illustrasi perhitungan stride 1 max pooling}
+	\end{figure}
+\end{enumerate}
+\subsection{Praktek}
+\begin{enumerate}
+\item Jelaskan kode program pada blok \# In[1]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=8, lastline=14]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[2]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=16, lastline=39]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[3]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=41, lastline=51]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[4]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=53, lastline=63]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[5]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=65, lastline=69]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[6]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=71, lastline=76]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[7]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=78, lastline=84]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[8]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=86, lastline=98]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[9]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=100, lastline=106]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[10]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=108, lastline=132]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[11]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=134, lastline=138]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[12]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=140, lastline=152]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[13]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=154, lastline=209]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[14]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=211, lastline=233]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[15]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=235, lastline=241]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[16]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=243, lastline=245]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[17]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=247, lastline=249]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[18]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=251, lastline=258]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[19]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=260, lastline=280]{src/1174069/7/1174069.py}
+
+\item Jelaskan kode program pada blok \# In[20]. Jelaskan arti dari setiap baris kode yang dibuat(harus beda dengan teman sekelas) dan hasil luarannya dari komputer sendiri.
+\lstinputlisting[firstline=282, lastline=288]{src/1174069/7/1174069.py}
+\end{enumerate}
+\subsection{Penanganan Error}
+\begin{enumerate}
+	\item SS Error
+	\begin{figure}[H]
+		\includegraphics[width=4cm]{figures/1174069/7/error/7_no_module.png}
+		\centering
+		\caption{No Module Name error}
+	\end{figure}
+	\item Jenis Error
+	\begin{itemize}
+		\item No Module
+	\end{itemize}
+	\item Cara Penanganan
+	\hfill\break
+	Dengan cara melakukan instalasi module yang bersangkutan / menginstal library yang digunakan
+\end{enumerate}
+\subsection{Bukti Tidak Plagiat}
+\begin{figure}[H]
+    \includegraphics[width=4cm]{figures/1174069/7/bukti/bukti.PNG}
+    \centering
+    \caption{Tidak Melakukan Plagiat Pada Ch 7}
+\end{figure}
