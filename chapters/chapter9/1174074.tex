@@ -8,8 +8,8 @@
 Vanilla GAN Vanilla GAN adalah tipe GAN paling sederhana. Di sini, Generator dan Diskriminator adalah perceptron multi-layer sederhana. Dalam vanilla GAN, algoritma ini sangat sederhana, ia mencoba untuk mengoptimalkan persamaan matematika menggunakan keturunan gradien stokastik.CGAN (Conditional GAN), label bertindak sebagai ekstensi ke ruang laten z untuk menghasilkan dan membedakan gambar dengan lebih baik. 
 
 	\begin{figure}[H]
-            	\includegraphics[width=4cm]{figures/1174074/9/teori1.PNG}
-           	\centering
+     	\includegraphics[width=4cm]{figures/1174074/9/teori1.png}
+         	\centering
            	\caption{Valina GAN-cGAN}
         	\end{figure}
 
@@ -18,7 +18,7 @@ Vanilla GAN Vanilla GAN adalah tipe GAN paling sederhana. Di sini, Generator dan
 Age cGAN ialah dengan mengkondisikan model pada informasi tambahan dimungkinkan untuk mengarahkan proses pembuatan data. Pengkondisian semacam itu dapat didasarkan pada label kelas.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori2.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori2.png}
             	\centering
            	\caption{Age-cGAN}
        	 \end{figure}
@@ -28,7 +28,7 @@ Age cGAN ialah dengan mengkondisikan model pada informasi tambahan dimungkinkan 
 Arsitektur encoder biasanya digunakan untuk memodelkan struktur manifold dan membalikkan encoder untuk memproses data.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori3.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori3.png}
             	\centering
            	\caption{Encoder Age cGANr}
        	 \end{figure}
@@ -38,7 +38,7 @@ Arsitektur encoder biasanya digunakan untuk memodelkan struktur manifold dan mem
 Arsitektur generator adalah sebuah array yang digunakan secara random, yang disebut seed. dari data seed tersebut, generator akan merubahnya menjadi sebuah gambar yang ukuran 28 x 28 dengan menggunakan Convolutional Neural Network.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori4.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori4.png}
             	\centering
            	\caption{Network Age cGAN}
        	 \end{figure}
@@ -49,7 +49,7 @@ Arsitektur generator adalah sebuah array yang digunakan secara random, yang dise
 Arsitektur diskriminator adalah CNN yang dapat menerima input gambar yang berukuran 28,28 serta menghasilkan angka biner yang menyatakan apakah data yang diinputkan merupakan dataset asli atau gambar dataset palsu.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori5.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori5.png}
             	\centering
            	\caption{Discriminator Age cGAN}
        	 \end{figure}
@@ -60,7 +60,7 @@ Arsitektur diskriminator adalah CNN yang dapat menerima input gambar yang beruku
 Pre-Trained Network atau Transfer Learning merupakan suatu metode penyelesaian yang memanfaatkan model yang sudah dilatih terhadap suatu dataset untuk menyelesaikan masalah dengan cara menggunakan sebagai starting point, memodifikasi dan mengupdate parameternya, sehingga sesuai dengan dataset yang baru.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori6.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori6.png}
             	\centering
            	\caption{Pretrained Inception ResNet}
        	 \end{figure}
@@ -70,7 +70,7 @@ Pre-Trained Network atau Transfer Learning merupakan suatu metode penyelesaian y
 Face Recognition merupakan salah satu sistem yang mengimplementasi Deep Learning yang dapat mengenali wajah secara fisik dari gambar digital atau video frame.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori7.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori7.png}
             	\centering
            	 \caption{Face recognition network Age-cGAN}
        	 \end{figure}
@@ -80,7 +80,7 @@ Face Recognition merupakan salah satu sistem yang mengimplementasi Deep Learning
 Pada dari Age-cGan ni terdapat 2 tahapan dengan generator dan diskriminator. dimana untuk tahap generator sendiri membutuhkan vektor laten 100 serta menghasilkan gambar yang realistis dari dimensinya. sedangkan tahap diskriminator itu tahapan dimana memprediksi gambar yang diberikan nyata atau palsu.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori8.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori8.png}
             	\centering
            	 \caption{Tahap Age cGAN}
        	 \end{figure}
@@ -90,7 +90,7 @@ Pada dari Age-cGan ni terdapat 2 tahapan dengan generator dan diskriminator. dim
 Objektif Trainning ialah untuk meminimalkan loss function sebagai log likelihood function yang diberikan pada persamaan dimana D melambangkan trainning data.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori9.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori9.png}
             	\centering
            	 \caption{Training Objektif}
        	 \end{figure}
@@ -100,7 +100,7 @@ Objektif Trainning ialah untuk meminimalkan loss function sebagai log likelihood
 Latent vector approdimation kemampuan untuk membuat gamar yang realistis dan tajam serta menghasilkan gambar wajah pada usia target.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori10.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori10.png}
             	\centering
            	 \caption{Initial Latent Vector Approximation}
        	 \end{figure}
@@ -110,7 +110,7 @@ Latent vector approdimation kemampuan untuk membuat gamar yang realistis dan taj
 Perhitungan lantent optimization menggunakan metode yang relatif sederhana, tergantung pada jumlah kecil parameter yang diperlukan, sehingga pada latent optimization dapat memetakan setiap gambar x dari dataset ke vektor acak dimensi rendah zi dalam ruang laten z.
 
 	\begin{figure}[H]
-		\includegraphics[width=4cm]{figures/1174074/9/teori11.PNG}
+		\includegraphics[width=4cm]{figures/1174074/9/teori11.png}
             	\centering
            	 \caption{Latent Vector Optimization}
        	 \end{figure}
@@ -163,6 +163,6 @@ Initial dan Latent Vector Approximation bekerja melakukan predicsi epoch yang te
 \subsection{Bukti Tidak Plagiat}
 \begin{figure}[H]
 \centering
-	\includegraphics[width=4cm]{figures/1174074/9/bukticekplagiarismechapter9.PNG}
+	\includegraphics[width=4cm]{figures/1174074/9/bukticekplagiarismechapter9.png}
 	\caption{Bukti Tidak Melakukan Plagiat Chapter 9}
 \end{figure}
