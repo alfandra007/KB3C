@@ -1,0 +1,95 @@
+\section{1174087 - Ilham Muhammad Ariq}
+\subsection{Teori}
+\begin{enumerate}
+	\item Jelaskan kenapa kata-kata harus di lakukan vektorisasi. Dilengkapi dengan ilustrasi atau gambar.
+	\hfill\break
+	karena ketika menggunakan algoritma machine learning tidak bisa secara langsung menggunakan teks melainkan teks tersebut harus diubah menjadi angka.
+	ilustrasinya sebagai berikut : kumpulan kata, vektorisasi data, pembobotan, lalu hasil
+
+	\item Jelaskan mengapa dimensi dari vektor dataset google bisa sampai 300. Dilengkapidengan ilustrasi atau gambar.
+	\hfill\break
+	karena dalam satu dataset berisikan setidaknya 3 milyar kata dan kalimat. yang dimana dimensi bersisi kata unuk dari data tersebut, maka dar iitu dimensi pada dataset google bisa mencapai 300.
+	misal kita memiliki buku tebal 1400 halaman, bukunya dibagi menjadi 4 chapter. kita akan menggabungkan kata dari setiap chapter tersebut, maka akan mendapat irisan yang berjumlah lebih dari 200 karena banyak kata yang berbeda
+
+	\item Jelaskan konsep vektorisasi untuk kata dilengkapi dengan ilustrasi atau gambar.
+	\hfill\break
+	konsepnya yaitu kata atau teks akan dihapuskan noisy datanya. kemudian di tokenization. lalu dinormalisasi untuk mengubah datanya menjadi angka
+	misal ada kalimat lebron james is the greatest of all time. kemudian didapat token seperti berikut = lebron, kawhi, durant, james, leonard, is, the, greatest, of, all, time.
+	maka ketika dii cek hasilnya akan seperti berikut[1,0,0,1,0,1,1,1,1,1,1]
+
+	\item Jelaskan konsep vektorisasi untuk dokumen dilengkapi dengan ilustrasi atau gambar.
+	\hfill\break
+	Vektorisasi untuk dokumen hampir sama seperti vektorisasi untuk kata hanya saja pemilihan kata utama atau kata tengah terdapat pada satu dokumen jadi mesin akan membuat dimensi vektor 300 untuk dokumen dan nanti kata tengahnya akan di sandingkan pada dokumen yany terdapat pada dokumen tersebut.
+	
+
+	\item Jelaskan apa mean dan standar deviasi,dilengkapi dengan ilustrasi atau gambar.
+	\hfill\break
+	mean merupakan petunjuk terhadap kata-kata yang di olah jika kata kata itu akurasinya tinggi berarti kata tersebut sering muncul begitu juga sebaliknya, sedangkan setandar defiation merupakan standar untuk menimbang kesalahan. sehingga kesalahan tersebut di anggap wajar misarkan kita memperkirakan kedalaman dari dataset merupakan 2 atau 3 tapi pada kenyataanya merupakan 5 itu merupakan kesalahan tapi masih bisa dianggap wajar karna masih mendekati perkiraan awal.
+	misal terdapat 5 monyet dengan tinggi130, 100, 125, 110, 115. lalu dihitung rata-ratanya menjadi 116,kemudian liat perbedaan tingginya dengan variace, gunakan standar deviasi yang hasilnya 10.6, dengan demikian kita dapat mengetahui monyet yang tingginya normal dan yyang tidak normal
+
+	
+\subsection{Praktek}
+\begin{enumerate}
+	\item Cobalah dataset google, dan jelaskan vektor dari kata love, faith, fall, sick, clear,shine, bag, car, wash, motor, cycle dan cobalah untuk melakukan perbandingan similirati dari masing-masing kata tersebut.
+	\begin{itemize}
+		\item berikut merupakan code import gensim digunakan untuk membuat data model atau rangcangan data yang akan di buat. 
+		\hfill\break
+	\lstinputlisting[firstline=13, lastline=44]{src/1174091/5/1174091.py}	
+		
+		
+		\item berikut merupakan hasil dari similaritas kata kata yang di olah menjadi matrix.
+		Dapat disimpulkan bahwa:
+		\begin{itemize}
+		\item Untuk Love dan faith hasilnya adalah 37 
+		\item Untuk Love dan fall hasilnya adalah 11
+		\item Untuk Love dan sick hasilnya adalah 26
+		\item Untuk Love dan clear hasilnya adalah 6
+		\item Untuk Love dan shine hasilnya adalah 20
+		\item Untuk Love dan bag hasilnya adalah 7
+		\item Untuk Love dan car hasilnya adalah 8
+		\item Untuk Love dan wash hasilnya adalah 11
+		\item Untuk Love dan motor hasilnya adalah 8
+		\item Untuk Love dan wash hasilnya adalah 5
+		\end{itemize}
+		Artinya love dan faith memang dalam kategori yang sama misalnya dalam kategori percintaan/kepercayaan. Mesin suda hmengetahui bahwa keduanya dapat dikategorikan sebagai percintaan/kepercayaan.
+
+		
+	\item Jelaskan dengan kata dan ilustrasi fungsi dari extract words dan PermuteSentences
+	\hfill\break
+	ExtractWords merupakan function untuk menambahkan, menghilangkan atau menghapuskan, hal hal yang tidak penting atau tidakperlu di dalam teks. Dalam contoh dibawah ini. menggunakan function extract words untuk menghapus komen dengan python style , mencari data yang diinginkan, dan memberikan spasi pada teks.
+		
+		\hfill\break
+		PermuteSentences merupakan class yang digunakan unutm melakukan pengocokan secara acak pada data yang ada. Digunakan cara ini agar tidak terjadi kelebihan memori pada saat dijalankan. 
+		\lstinputlisting[firstline=69, lastline=81]{src/1174091/5/1174091.py}
+
+	\item Jelaskan fungsi dari librari gensim TaggedDocument dan Doc2Vec disertai praktek pemakaiannya.
+	\hfill\break
+	Doc2vec adalah algoritma unsupervised untuk menghasilkan vektor untuk kalimat / paragraf / dokumen. Dan TaggedDocument merupaka function dari Doc2Vec untuk menampilkan tag kata atau kalimat yang diinginkan dari sebuah dokumen.
+\lstinputlisting[firstline=96, lastline=109]{src/1174091/5/1174091.py}
+		
+	\item Jelaskan dengan kata dan praktek cara menambahkan data training dari file yang dimasukkan kepada variabel dalam rangka melatih model doc2vac.
+	\lstinputlisting[firstline=110, lastline=115]{src/1174091/5/1174091.py}
+	
+		
+		
+	\item Jelaskan dengan kata dan praktek kenapa harus dilakukan pengocokan dan pembersihan data.
+	\hfill\break
+	Pengocokan dilakukan untuk mendapatkan hasil yang lebih akurat pada saat melakukan score, karena pengocokan mempengaruhi performa positif negatifnya dari scoring. Kemudian Pembersihan data dilakukan untuk membersihkan tag spasi ataupun data noisy yang tidak diperlukan dalam dokumen. 
+	\lstinputlisting[firstline=110, lastline=115]{src/1174091/5/1174091.py}
+	
+	\item Jelaskan dengan kata dan praktek kenapa model harus di save dan kenapa temporari training harus dihapus.
+	\hfill\break
+	Model disave untuk memudahkan kita dalam meng-edit ﬁle, kita tidak perlu mengetik ulang semua skrip dan tinggal membuka ﬁle tersebut jika ingin menguji ulang modelnya. Temporari training merupakan data training yang sebelumnya kita gunakan untuk mencoba skripnya, namun karena kita telah membuat modelnya dan untuk menghemat memori dilakukan penghapusan temporari training agar tidak terjadi lag ataupun hal lainnya.
+		\lstinputlisting[firstline=117, lastline=122]{src/1174087/5/1174087.py}
+			
+	\item Jalankan dengan kata dan praktek maksud dari infer code.
+	\hfill\break
+	Infer vektor digunakan untuk mengkalkulasikan berapa vektor dari kata yang diberikan. Atau dengan kata lain mengubah kata yang diberikan menjadi bentuk vektor. Dari model yang telah dibuat 
+		\lstinputlisting[firstline=124, lastline=125]{src/1174091/5/1174091.py}
+
+	\item Jelaskan dengan praktek dan kata maksud dari cosine similarity.
+	Cosine similarity digunakan untu kmelihat kesamaan atau kemiripan dari suatu kalimat/paragraf yang diinginkan. Apakah kalimat tersebut dapat dikategorikan dalam satu kategori atau tidak.
+	\hfill\break
+	
+		\lstinputlisting[firstline=127, lastline=131]{src/1174091/5/1174091.py}	
+\end{enumerate}
